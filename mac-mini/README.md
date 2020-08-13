@@ -33,8 +33,7 @@ rc.local:
 	edit /etc/rc.local to include rc.local file in this directory
 ****************************************
 uniflash:
-	copy uniflash_3.4.1.00012_linux.tar.gz
-	tar -xvf uniflash_3.4.1.00012_linux.tar.gz 
+	copy Uniflash_3.4.1.00012_linux
 	cd Uniflash_3.4.1.00012_linux/
 	./uniflash_setup_3.4.1.00012.bin # install to /home/cirlab/ti/uniflash
 	copy reset_sensortags.sh to /home/cirlab/ti/uniflash/ccs_base/common/uscif/xds110
