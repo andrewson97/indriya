@@ -1,0 +1,19 @@
+user cirlab
+topic read #
+topic readwrite cirlab/#
+
+user ncl
+topic read #
+topic readwrite ncl/#
+
+user indriya
+topic readwrite #
+
+user alice
+topic readwrite alice/#
+
+user bob
+topic readwrite bob/#
+
+user malory
+topic readwrite malory/#
