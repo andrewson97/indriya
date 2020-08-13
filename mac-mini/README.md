@@ -1,1 +1,0 @@
-# Mac Minis - Clusters
