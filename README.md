@@ -6,7 +6,7 @@ The testbed includes a public server which conencts over the network to several 
 
 ## Setup Components
 ### Server
-The main public server has two main components namely; frontend ([indriya/server/frontend][https://github.com/ebramkw/indriya/tree/master/server/frontend]) and backend ([indriya/server/backend][https://github.com/ebramkw/indriya/tree/master/server/backend]).
+The main public server has two main components namely; frontend ([indriya/server/frontend](https://github.com/ebramkw/indriya/tree/master/server/frontend)) and backend ([indriya/server/backend](https://github.com/ebramkw/indriya/tree/master/server/backend)).
 
 The frontend contains:
 - apache server
