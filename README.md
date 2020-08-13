@@ -9,12 +9,15 @@ The testbed includes a public server which conencts over the network to several 
 The main public server has two main components namely; frontend ([indriya/server/frontend](https://github.com/ebramkw/indriya/tree/master/server/frontend)) and backend ([indriya/server/backend](https://github.com/ebramkw/indriya/tree/master/server/backend)).
 
 The frontend contains:
-- apache server
-- website (html, css, javascript, and php)
-- mysql database server
-- database structure
+- apache server and website files (html, css, javascript, and php).
+- mysql database server and database structure.
 
 The backend contains:
 - scripts for scheduling, configuration, ...
-- publish/subscribe server (MQTT)
+- publish/subscribe server (MQTT).
 - database server (influxDB).
+
+### cluster
+Each cluster does the following:
+- burn to motes (TelosB and CC2650)
+- copy serial logs from motes to the network on specified ports
