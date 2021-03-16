@@ -1,0 +1,102 @@
++---------------------+
+| Tables_in_indriyaDB |
++---------------------+
+| clusters            |
+| file_mote           |
+| files               |
+| jobs                |
+| moteTypes           |
+| motes               |
+| results             |
+| runtimes            |
+| users               |
++---------------------+
+
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| clusterID   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| clusterName | varchar(89) | NO   |     | NULL    |                |
+| floorLevel  | varchar(89) | NO   |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+
++--------------+---------+------+-----+---------+-------+
+| Field        | Type    | Null | Key | Default | Extra |
++--------------+---------+------+-----+---------+-------+
+| files_fileID | int(11) | NO   | MUL | NULL    |       |
+| motes_moteID | int(11) | NO   | MUL | NULL    |       |
++--------------+---------+------+-----+---------+-------+
+
++----------------------+-------------+------+-----+---------+----------------+
+| Field                | Type        | Null | Key | Default | Extra          |
++----------------------+-------------+------+-----+---------+----------------+
+| fileID               | int(11)     | NO   | PRI | NULL    | auto_increment |
+| fileName             | varchar(89) | NO   |     | NULL    |                |
+| jobs_jobID           | int(11)     | NO   | MUL | NULL    |                |
+| moteTypes_moteTypeID | int(11)     | NO   | MUL | NULL    |                |
+| dcube                | int(11)     | NO   |     | 0       |                |
++----------------------+-------------+------+-----+---------+----------------+
+
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| jobID        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| jobName      | varchar(89) | NO   |     | NULL    |                |
+| users_userID | varchar(89) | NO   | MUL | NULL    |                |
+| dcube        | int(11)     | NO   |     | 0       |                |
++--------------+-------------+------+-----+---------+----------------+
+
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| moteTypeID   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| moteTypeName | varchar(89) | NO   |     | NULL    |                |
+| runningTime  | bigint(20)  | NO   |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+
++----------------------+-------------+------+-----+---------+----------------+
+| Field                | Type        | Null | Key | Default | Extra          |
++----------------------+-------------+------+-----+---------+----------------+
+| moteID               | int(11)     | NO   | PRI | NULL    | auto_increment |
+| physical_id          | varchar(89) | NO   |     | 0       |                |
+| virtual_id           | varchar(89) | NO   |     | NULL    |                |
+| gateway_ip           | varchar(89) | NO   |     | 0       |                |
+| gateway_ttyid        | varchar(89) | NO   |     | 0       |                |
+| gateway_port         | varchar(89) | NO   |     | 0       |                |
+| coordinates          | varchar(89) | NO   |     | 0       |                |
+| moteTypes_moteTypeID | int(11)     | NO   | MUL | NULL    |                |
+| clusters_clusterID   | int(11)     | NO   | MUL | NULL    |                |
+| status               | tinyint(1)  | NO   |     | -1      |                |
++----------------------+-------------+------+-----+---------+----------------+
+
++--------------------+---------+------+-----+---------+----------------+
+| Field              | Type    | Null | Key | Default | Extra          |
++--------------------+---------+------+-----+---------+----------------+
+| resultID           | int(11) | NO   | PRI | NULL    | auto_increment |
+| status             | int(11) | NO   |     | NULL    |                |
+| jobs_jobID         | int(11) | NO   | MUL | NULL    |                |
+| runtimes_runtimeID | int(11) | NO   | MUL | NULL    |                |
++--------------------+---------+------+-----+---------+----------------+
+
++------------+-----------+------+-----+-------------------+----------------+
+| Field      | Type      | Null | Key | Default           | Extra          |
++------------+-----------+------+-----+-------------------+----------------+
+| runtimeID  | int(11)   | NO   | PRI | NULL              | auto_increment |
+| start      | timestamp | NO   |     | CURRENT_TIMESTAMP |                |
+| end        | timestamp | NO   |     | CURRENT_TIMESTAMP |                |
+| jobs_jobID | int(11)   | NO   | MUL | NULL              |                |
++------------+-----------+------+-----+-------------------+----------------+
+
++------------------+-------------+------+-----+-------------------+-------+
+| Field            | Type        | Null | Key | Default           | Extra |
++------------------+-------------+------+-----+-------------------+-------+
+| userID           | varchar(89) | NO   | PRI | NULL              |       |
+| quota            | int(11)     | NO   |     | NULL              |       |
+| admin            | tinyint(1)  | NO   |     | NULL              |       |
+| allMotes         | tinyint(1)  | NO   |     | NULL              |       |
+| runningTime      | bigint(20)  | NO   |     | NULL              |       |
+| totalSubmissions | bigint(20)  | NO   |     | 0                 |       |
+| mqtt_passw       | varchar(50) | YES  |     | NULL              |       |
+| create_date      | timestamp   | NO   |     | CURRENT_TIMESTAMP |       |
+| details          | text        | NO   |     | NULL              |       |
++------------------+-------------+------+-----+-------------------+-------+
