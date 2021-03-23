@@ -1,0 +1,7 @@
+# server_binaries_dir="/home/cirlab/indriya_upgrade/telosb_bin/"
+server_binaries_dir="/var/www/files/"
+RESULT_DIRECTORY = "/home/cirlab/indriya_upgrade/output/"
+RESULT_DIRECTORY_WWW =  "/var/www/results/"
+gateway_binaries_dir="/home/cirlab/elf/"
+gateway_source_dir="/home/cirlab/indriya_upgrade/"
+gateway_user = "..."
