@@ -56,3 +56,12 @@ test ser2nets:
 
 ## flash_sensortag_linux_64
 	copy flash_sensortag_linux_64 to /home/cirlab
+
+## permissions
+	sudo usermod -a -G dialout cirlab
+	sudo usermod -a -G tty cirlab
+	sudo adduser cirlab dialout
+	chmod 7555 indriya_upgrade/*
+
+## burning telosb from server
+	ssh cirlab@mac-mini-com1-b-el "/home/cirlab/indriya_upgrade/burn_telosb_test.py telosb /dev/serial/by-id/usb-XBOW_Crossbow_Telos_Rev.B_XBR5M5EU-if00-port0 /home/cirlab/indriya_upgrade/telosb_bin/dyn_sample.sky"
