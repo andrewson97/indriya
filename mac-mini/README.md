@@ -65,3 +65,7 @@ test ser2nets:
 
 ## burning telosb from server
 	ssh cirlab@mac-mini-com1-b-el "/home/cirlab/indriya_upgrade/burn_telosb_test.py telosb /dev/serial/by-id/usb-XBOW_Crossbow_Telos_Rev.B_XBR5M5EU-if00-port0 /home/cirlab/indriya_upgrade/telosb_bin/dyn_sample.sky"
+
+## adding sensortag would require
+1- edit sensortag id to serial by id in server: ~/indriya_upgrade/burn_telosb_ids/mac-mini-com1-b-el.stag.serial
+2- edit sensotag virt id to phy is in mac-mini:  ~/indriya_upgrade/nodes_virt_id_phy_id.json
