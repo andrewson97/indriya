@@ -1,0 +1,6 @@
+admin = 'indriya_admin'
+admin_password = 'in@fluxis!50Xfaster'
+user = 'indriya_user'
+user_password = 'ido!believe#killall'
+mqtt_user = 'indriya'
+mqtt_password = 'indriya123'
