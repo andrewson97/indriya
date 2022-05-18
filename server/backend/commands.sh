@@ -202,6 +202,8 @@ do
     done < mac-mini
 
     cp ~/indriya_upgrade/nodes_virt_id_phy_id.json ~/indriya_upgrade/nodes_virt_id_phy_id.json.bak
+    truncate -s -2 ocean.json
+    echo "" >> ocean.json
     echo "}" >> ocean.json
     cp ocean.json ~/indriya_upgrade/nodes_virt_id_phy_id.json
 
