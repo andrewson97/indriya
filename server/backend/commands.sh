@@ -205,11 +205,20 @@ do
     echo "}" >> ocean.json
     cp ocean.json ~/indriya_upgrade/nodes_virt_id_phy_id.json
 
+    while read mac_mini;
+        read mac_mini_db_id;
+        do echo "mac-mini: "$mac_mini;
+        ssh=$cirlab$mac_mini
+        ssh_location=$ssh$location
+        echo "scp ~/indriya_upgrade/nodes_virt_id_phy_id.json $ssh_location"
+        scp ~/indriya_upgrade/nodes_virt_id_phy_id.json $ssh_location
+    done < mac-mini
+
     echo "run $x times"
     sleep 30
 done
 
-    cd ~/indriya_upgrade & ./indriya.sh
+    #cd ~/indriya_upgrade & ./indriya.sh
 
     #ssh cirlab@mac-mini-com1-b-el '/home/cirlab/indriya_upgrade/burn_telosb_test.py telosb #RECORD_FOR_SERIAL_DEVICE_FROM_FILE# /home/cirlab/indriya_upgrade/telosb_bin/burn-nodeid.sky.#ID#' &
     # example 
