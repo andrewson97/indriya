@@ -68,5 +68,5 @@ test ser2nets:
 
 ## adding sensortag would require
 1- edit sensortag id to serial by id in server: ~/indriya_upgrade/burn_telosb_ids/mac-mini-com1-b-el.stag.serial
-2- edit sensotag virt id to phy is in server:  ~/indriya_upgrade/nodes_virt_id_phy_id.json
-3- edit sensotag virt id to phy is in mac-mini:  ~/indriya_upgrade/nodes_virt_id_phy_id.json
+2- run commands.sh
+3- reboot and run indriya.sh
