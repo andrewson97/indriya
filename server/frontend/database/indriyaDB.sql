@@ -1,8 +1,8 @@
 -- script to create mysql database for indriya --
 
-create database indriyaDB
+create database indriyaDB;
 
-use indriyaDB
+use indriyaDB;
 
 
 create table clusters(
