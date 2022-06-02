@@ -1,15 +1,15 @@
 import subprocess, shlex
-import git
+
 import os
 
 
 def install_essentials():
     cmd = ["sudo apt update", "sudo apt install apache2",
     "sudo ufw enable", "sudo ufw allow 'Apache'",
-    "sudo apt-get install php7.4", "sudo apt install mysql-server",
+    "sudo apt-get install php7.2", "sudo apt install mysql-server",
     "sudo systemctl start mysql.service","sudo apt install git",
     "sudo apt install python3-pip",
-    "pip3 install GitPython", "pip install mysql-connector-python"]
+    "pip3 install GitPython",]
     for cmds in cmd :
         args = shlex.split(cmds)
         subprocess.Popen(args).communicate("password")
@@ -25,15 +25,15 @@ def get_path():
 def download_essentials():
     path_a = get_path()
     print(path_a)
-    git.Git(path_a).clone("https://github.com/Alecaddd/virtualhost.git")
+    import git
+    git.Git(path_a).clone("https://github.com/andrewson97/virtualhost.git")
     git.Git(path_a).clone("https://github.com/andrewson97/indriya.git")
 
 
 
 def apache_setup1():
     path_a = get_path()
-    cmd =["ln -s /var/www " + path_a + "/www" ,
-    "chmod +x " + path_a + "/virtualhost/virtualhost.sh",
+    cmd =["chmod +x " + path_a + "/virtualhost/virtualhost.sh",
     "sudo cp " + path_a + "/virtualhost/virtualhost.sh /usr/local/bin/virtualhost"]
     for cmds in cmd :
         args = shlex.split(cmds)
@@ -46,14 +46,24 @@ def apache_setup2():
     #arg = shlex.split("sudo virtualhost " + action + " " + domain + " " + host_dir)
     subprocess.run(["sudo", "virtualhost" , action , domain , host_dir])
     if action == "create":
+        print ("\nvirtual host sucsusfully setup\n coppying needed files to the directory")
         place_files(host_dir)
+        cmd1 = "sudo chown -R $USER:$USER /var/www"
+        cmd2 = "sudo chmod -R 755 /var/www"
+        cmd3 = "sudo chmod 777 /var/www/" + host_dir + "/conf.d/indriya_db_pass"
+        os.system(cmd1)
+        os.system(cmd2)
+        os.system(cmd3)
     return str(host_dir)
 
 def place_files(host_dir):
     path_a = get_path()
-    cmd = "sudo cp -RT" + path_a + "/indriya-master/server/frontend/website " + path_a + "/www/" + host_dir
+    cmd = "sudo cp -RT " + path_a + "/indriya-master/server/frontend/website " + path_a + "/www/" + host_dir
     arg = shlex.split(cmd)
     subprocess.run(arg)
+    """cmd1 = "sudo cp -RT" + path_a + "/indriya-master/server/frontend/website " + path_a + "/www/" + host_dir
+    x = os.system(cmd1)
+    if x == 0 : print ("files coppied sucsussfully")"""
 
 
 def sql_setup():
@@ -79,7 +89,7 @@ def write_essentials(sqlpwd,host_dir):
 
 def create_db():
     path_a = get_path()
-    cmd = "mysql -u root -p < " + path_a + "/indriya-master/server/frontend/database/indriyaDB.sql"
+    cmd = "sudo mysql -u root -p < " + path_a + "/indriya-master/server/frontend/database/indriyaDB.sql"
     #print(cmd)
     #arg = shlex.split(cmd)
     #print(arg)
@@ -87,10 +97,13 @@ def create_db():
     x = os.system(cmd)
     if x == 0 : print ("DB created Sucusfully")
 
+
 install_essentials()
 download_essentials()
 apache_setup1()
 host_dir = apache_setup2()
-sqlpwd = sql_setup()
+#sqlpwd = sql_setup()
+#host_dir = "indriya"
+sqlpwd = "admin"
 write_essentials(sqlpwd,host_dir)
 create_db()
