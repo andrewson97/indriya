@@ -36,6 +36,7 @@ create table jobs(
     jobID int(11) not null auto_increment,
     jobName varchar(89) not null,
     users_userID varchar(89) not null,
+    dcube int(11) not null default 0,
     primary key (jobID),
     foreign key (users_userID) references users(userID)
 );
