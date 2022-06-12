@@ -8,7 +8,7 @@ function onSignIn(googleUser) {
     // Useful data for your client-side scripts:
     var profile = googleUser.getBasicProfile();
     //console.log('User signed in.');
-    
+
     /*console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
@@ -22,16 +22,18 @@ function onSignIn(googleUser) {
     userInfo.append('email', userID);
     userInfo.append('userID', profile.getId());
     userInfo.append('id_token', id_token);
+    userInfo.append('client_id', "439147398398-3394kdr8lkujpv7er1qshc5aob3d92m9.apps.googleusercontent.com");
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'php/getUser.php', true);
     xhr.send(userInfo);
-    xhr.onload = function () {
+    xhr.onload = function() {
         if (xhr.status === 200) {
-	        var myObj = JSON.parse(this.responseText);
+            var myObj = JSON.parse(this.responseText.substring(25, )); //the string had some extra unwanted prefixes
             userAdmin = myObj.admin;
             useAllMotes = myObj.allMotes;
-    		mqtt_passw = myObj.mqtt_passw;
+            mqtt_passw = myObj.mqtt_passw;
+
 
             //update html state after login
             document.getElementById('gSignin').style.display = 'none';
@@ -44,15 +46,17 @@ function onSignIn(googleUser) {
             //go my account page if signed in
             goToByScroll("page5");
 
-            if(userAdmin == 1){
+            if (userAdmin == 1) {
                 document.getElementById('userAccountsTab').style.display = 'block';
                 document.getElementById('motesTab').style.display = 'block';
-            } else{
+            } else {
                 document.getElementById('userAccountsTab').style.display = 'none';
                 document.getElementById('motesTab').style.display = 'none';
             }
-                
+
             document.getElementById("myJobsTab").click();
+        } else {
+            alert(xhr.responseText);
         }
     };
 }
@@ -61,19 +65,19 @@ function onFailure(error) {
     alert(error);
 }
 
-function signOut(){
+function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      //console.log('User signed out.');
+    auth2.signOut().then(function() {
+        //console.log('User signed out.');
     });
-    
+
     auth2.disconnect();
-    
+
     userID = null;
     userName = null;
     userAdmin = 0;
     useAllMotes = 0;
-    
+
     //go my home page if signed out
     goToByScroll("page1");
 
