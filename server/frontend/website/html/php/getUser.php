@@ -4,6 +4,7 @@
 $email = $_POST["email"];
 $user_id = $_POST["userID"];
 $id_token = $_POST["id_token"];
+$CLIENT_ID = $_POST["client_id"];
 
 $isMyForm = isset($_POST, $_POST["userID"], $_POST["email"], $_POST["id_token"]);
 
@@ -18,12 +19,14 @@ if(!$isMyForm || !filter_var($email, FILTER_VALIDATE_EMAIL) || sizeof($email) ==
   // Get $id_token via HTTPS POST.
   $client = new Google_Client(['client_id' => $CLIENT_ID]);
   $payload = $client->verifyIdToken($id_token);
+
   if ($payload) {
     $email_ver = $payload['email'];
     $id_ver = $payload['sub'];
     $email_verified_ver = $payload['email_verified'];
     // If request specified a G Suite domain:
     //$domain = $payload['hd'];
+
     #get db pass
     if($email_verified_ver == true && $email_ver == $email && $id_ver == $user_id) {
       include "databaseHandler.php";
@@ -31,8 +34,9 @@ if(!$isMyForm || !filter_var($email, FILTER_VALIDATE_EMAIL) || sizeof($email) ==
 
       $con = mysqli_connect('localhost','root',$indriya_db_pass);
       if (!$con) {
-          die('Could not connect: ' . mysqli_error($con));
+          echo 'Could not connect: ' . mysqli_connect_error();
       }
+      echo mysqli_get_host_info($con);
 
       mysqli_select_db($con,"indriyaDB");
 
