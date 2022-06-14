@@ -1,7 +1,7 @@
 import subprocess, shlex
 
 import os
-
+import dependencies
 
 def install_essentials():
     cmd = ["sudo apt-get update -y", "sudo apt install apache2",
@@ -113,5 +113,5 @@ def create_db():
 # sqlpwd = "admin"
 # write_essentials(sqlpwd,host_dir)
 # create_db()
-
+dependencies.set_dep()
 
