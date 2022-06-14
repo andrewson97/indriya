@@ -1,755 +1,766 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title>INDRIYA2 Testbed at NUS</title>
-		<link rel="icon" href="images/icon.ico">
-		<link rel="shortcut icon" href="images/icon.ico"/>
-		
-        <link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/zerogrid.css" >
-		<link rel="stylesheet" href="css/camera.css">
-		<link rel="stylesheet" href="css/form.css">
-		<link rel="stylesheet" href="css/responsive.css">
-		
-        <script src="js/jquery.js"></script>
-		<script src="js/jquery-migrate-1.1.1.js"></script>
-		<script src="js/superfish.js"></script>
-		<script src="js/forms.js"></script>
-		<script src="js/jquery.ui.totop.js"></script>
-		<script src="js/jquery.equalheights.js"></script>
-		<script src="js/jquery.easing.1.3.js"></script>
-		<script src="js/jquery.ui.totop.js"></script>
-		<script src="js/tms-0.4.1.js"></script>
-		<script src="js/css3-mediaqueries.js"></script>
-		<script src="js/conf.js"></script>
-        
-        <!--signin-->
-        <script src="js/googleSignin.js"></script>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <meta name="google-signin-client_id" content="439147398398-3394kdr8lkujpv7er1qshc5aob3d92m9.apps.googleusercontent.com">
 
-	<!-- indriya 737051389558-b9opscgkrvhbn5ualmj1ct4uatfn2keo.apps.googleusercontent.com -->        
-        <!--localhost 916654777170-ughlilni7l5a6iu30e9m84ehqaiab6p2.apps.googleusercontent.com -->
-        <!--ocean 916654777170-12aubmb5qp0moq66epq82bq66ovgbt4n.apps.googleusercontent.com -->
-        
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>INDRIYA2 Testbed at NUS</title>
+    <link rel="icon" href="images/icon.ico">
+    <link rel="shortcut icon" href="images/icon.ico" />
 
-        <link rel="stylesheet" href="css/tabMenu.css">
-        <script src="js/tabMenu.js"></script>
-        
-        <script src="js/showUser.js"></script>
-        <script src="js/updateUserInfo.js"></script>
-        
-        <link rel="stylesheet" href="css/table.css">
-        
-        <script src="js/showStatistics.js"></script>
-        
-        <script src="js/print.js"></script>
-        
-        <script src="js/editJob.js"></script>
-        <script src="js/addJob.js"></script>
-        <script src="js/loadMotes.js"></script>
-        <script src="js/moteTypesTable.js"></script>
-        <script src="js/clustersTable.js"></script>
-        <script src="js/motesTable.js"></script>
-        <script src="js/scheduleJob.js"></script>
-        
-        <script src="js/vis/dist/vis.js"></script>
-        <link href="js/vis/dist/vis.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="css/timeline.css">
-        
-        <script src="js/popup.js"></script>
-        <link href="css/popup.css" rel="stylesheet" type="text/css"/>
-        
-        <script src="js/connectivity.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/zerogrid.css">
+    <link rel="stylesheet" href="css/camera.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
-        <script src="js/mqtt/paho-mqtt.js"></script>
-        
-        <script>
-			$(document).ready(function(){
-				$('.slider_wrapper')._TMS({
-					show:0,
-					pauseOnHover:false,
-					prevBu:'.prev',
-					nextBu:'.next',
-					playBu:false,
-					duration:800,
-					preset:'fade',
-					pagination:true,//'.pagination',true,'<ul></ul>'
-					pagNums:false,
-					slideshow:8000,
-					numStatus:false,
-					banners: 'fade',
-					waitBannerAnimation:false,
-					progressBar:false
-				});
-			});
-			$(document).ready(function(){
-				!function(){
-			var map=[]
-			 ,names=[]
-			 ,win=$(window)
-			 ,header=$('header')
-			 ,currClass
-			$('.content').each(function(n){
-			 map[n]=this.offsetTop
-			 names[n]=$(this).attr('id')
-			})
-			win
-			 .on('scroll',function(){
-				var i=0
-				while(map[i++]<=win.scrollTop());
-				if(currClass!==names[i-2])
-				currClass=names[i-2]
-				header.removeAttr("class").addClass(names[i-2])
-			 })
-			}(); });
-					function goToByScroll(id){
-				$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
-				}
-				$(document).ready(function(){
-					$().UItoTop({ easingType: 'easeOutQuart' });
-				});
-		</script>
-		<!--[if lt IE 8]>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.1.1.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+    <script src="js/jquery.equalheights.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+    <script src="js/tms-0.4.1.js"></script>
+    <script src="js/css3-mediaqueries.js"></script>
+    <script src="js/conf.js"></script>
+
+    <!--signin-->
+    <script src="js/googleSignin.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="439147398398-3394kdr8lkujpv7er1qshc5aob3d92m9.apps.googleusercontent.com">
+
+    <!-- indriya 737051389558-b9opscgkrvhbn5ualmj1ct4uatfn2keo.apps.googleusercontent.com -->
+    <!--localhost 916654777170-ughlilni7l5a6iu30e9m84ehqaiab6p2.apps.googleusercontent.com -->
+    <!--ocean 916654777170-12aubmb5qp0moq66epq82bq66ovgbt4n.apps.googleusercontent.com -->
+
+
+    <link rel="stylesheet" href="css/tabMenu.css">
+    <script src="js/tabMenu.js"></script>
+
+    <script src="js/updateUserInfo.js"></script>
+
+    <link rel="stylesheet" href="css/table.css">
+
+    <script src="js/showStatistics.js"></script>
+
+    <script src="js/print.js"></script>
+
+    <script src="js/editJob.js"></script>
+    <script src="js/addJob.js"></script>
+    <script src="js/loadMotes.js"></script>
+    <script src="js/moteTypesTable.js"></script>
+    <script src="js/clustersTable.js"></script>
+    <script src="js/motesTable.js"></script>
+    <script src="js/scheduleJob.js"></script>
+
+    <script src="js/vis/dist/vis.js"></script>
+    <link href="js/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/timeline.css">
+
+    <script src="js/popup.js"></script>
+    <link href="css/popup.css" rel="stylesheet" type="text/css" />
+
+    <script src="js/connectivity.js"></script>
+
+    <script src="js/mqtt/paho-mqtt.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.slider_wrapper')._TMS({
+                show: 0,
+                pauseOnHover: false,
+                prevBu: '.prev',
+                nextBu: '.next',
+                playBu: false,
+                duration: 800,
+                preset: 'fade',
+                pagination: true, //'.pagination',true,'<ul></ul>'
+                pagNums: false,
+                slideshow: 8000,
+                numStatus: false,
+                banners: 'fade',
+                waitBannerAnimation: false,
+                progressBar: false
+            });
+        });
+        $(document).ready(function() {
+            ! function() {
+                var map = [],
+                    names = [],
+                    win = $(window),
+                    header = $('header'),
+                    currClass
+                $('.content').each(function(n) {
+                    map[n] = this.offsetTop
+                    names[n] = $(this).attr('id')
+                })
+                win
+                    .on('scroll', function() {
+                        var i = 0
+                        while (map[i++] <= win.scrollTop());
+                        if (currClass !== names[i - 2])
+                            currClass = names[i - 2]
+                        header.removeAttr("class").addClass(names[i - 2])
+                    })
+            }();
+        });
+
+        function goToByScroll(id) {
+            $('html,body').animate({
+                scrollTop: $("#" + id).offset().top
+            }, 'slow');
+        }
+        $(document).ready(function() {
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+        });
+    </script>
+    <!--[if lt IE 8]>
 			<div style=' clear: both; text-align:center; position: relative;'>
 				<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
 					<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
 				</a>
 			</div>
 		<![endif]-->
-		<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 			<script src="js/html5shiv.js"></script>
 			<link rel="stylesheet" media="screen" href="css/ie.css">
 		<![endif]-->
-	</head>
-	<body class="">
-<!--==============================header=================================-->
-		<header class="page1">
-			<div class="zerogrid">
-				<div class="col-full">
-					<div class="wrap-col">
-						<div class="menu_block">
-							<nav class="">
-								<ul id="menu-list" class="sf-menu">
-									
-                                    <li class="current men"><a onClick="goToByScroll('page1'); if(updateTimeInterval != null) {clearInterval(updateTimeInterval); updateTimeInterval = null;} return false;" href="#">Home </a> <strong class="hover"></strong></li>
-                                    
-                                    <li class="men1"><a onClick="goToByScroll('page2'); if(updateTimeInterval != null) {clearInterval(updateTimeInterval); updateTimeInterval = null;} return false;" href="#">About</a><strong class="hover"></strong></li>
-									
-                                    <li class=" men2"><a onClick="goToByScroll('page3'); if(updateTimeInterval != null) {clearInterval(updateTimeInterval); updateTimeInterval = null;} return false;" href="#">People</a> <strong class="hover"></strong></li>
-									
-                                    <li class=" men3"><a onClick="goToByScroll('page4'); if(updateTimeInterval != null) {clearInterval(updateTimeInterval); updateTimeInterval = null;} return false;" href="#">Connectivity</a> <strong class="hover"></strong></li>
-                                    
-                                    <li class=" men4" id='myAccountMenu' style="display:none;"><a onClick="goToByScroll('page5'); openTab(event, 'myJobs'); return false;" href="#">My Account</a> <strong class="hover"></strong></li>
-                                    <li class=" men4">
-                                        <div class="g-signin2" id="gSignin"  data-onsuccess="onSignIn" style="padding: 30px 10px;">
-                                        </div>
-                                    </li>
-								</ul>
-							</nav>
-							<div class="clear"></div>
-						</div>
-                        <h1><a href="http://www.comp.nus.edu.sg/" target="_blank">
-                            <img src="images/CoBrand-SchoolofComp_H.jpg" alt=""></a></h1>
-                        <h1><a href="#" onClick="goToByScroll('page1'); return false;">
-                        <img src="images/icon.png" alt=""></a></h1>
-					</div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</header>
-<!--=======content================================-->
-		<div id="page1" class="content">
-			<div class="zerogrid">
-				<div class="col-full">
-					<div class="wrap-col">
-				        <h2>A Wireless Sensor Network Testbed</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-        <div id="page2" class="content">
-			<div class="zerogrid">
-				<div class="col-full">
-					<div class="wrap-col">
-						<div class="slogan">
-							<!--
+</head>
+
+<body class="">
+    <!--==============================header=================================-->
+    <header class="page1">
+        <div class="zerogrid">
+            <div class="col-full">
+                <div class="wrap-col">
+                    <div class="menu_block">
+                        <nav class="">
+                            <ul id="menu-list" class="sf-menu">
+
+                                <li class="current men"><a onClick="goToByScroll('page1'); if(updateTimeInterval != null) {clearInterval(updateTimeInterval); updateTimeInterval = null;} return false;" href="#">Home </a> <strong class="hover"></strong></li>
+
+                                <li class="men1"><a onClick="goToByScroll('page2'); if(updateTimeInterval != null) {clearInterval(updateTimeInterval); updateTimeInterval = null;} return false;" href="#">About</a><strong class="hover"></strong></li>
+
+                                <li class=" men2"><a onClick="goToByScroll('page3'); if(updateTimeInterval != null) {clearInterval(updateTimeInterval); updateTimeInterval = null;} return false;" href="#">People</a> <strong class="hover"></strong></li>
+
+                                <li class=" men3"><a onClick="goToByScroll('page4'); if(updateTimeInterval != null) {clearInterval(updateTimeInterval); updateTimeInterval = null;} return false;" href="#">Connectivity</a> <strong class="hover"></strong></li>
+
+                                <li class=" men4" id='myAccountMenu' style="display:none;"><a onClick="goToByScroll('page5'); openTab(event, 'myJobs'); return false;" href="#">My Account</a> <strong class="hover"></strong></li>
+                                <li class=" men4">
+                                    <div class="g-signin2" id="gSignin" data-onsuccess="onSignIn" style="padding: 30px 10px;">
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="clear"></div>
+                    </div>
+                    <h1>
+                        <a href="http://www.comp.nus.edu.sg/" target="_blank">
+                            <img src="images/CoBrand-SchoolofComp_H.jpg" alt=""></a>
+                    </h1>
+                    <h1>
+                        <a href="#" onClick="goToByScroll('page1'); return false;">
+                            <img src="images/icon.png" alt=""></a>
+                    </h1>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </header>
+    <!--=======content================================-->
+    <div id="page1" class="content">
+        <div class="zerogrid">
+            <div class="col-full">
+                <div class="wrap-col">
+                    <h2>A Wireless Sensor Network Testbed</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page2" class="content">
+        <div class="zerogrid">
+            <div class="col-full">
+                <div class="wrap-col">
+                    <div class="slogan">
+                        <!--
                             <h3>Only Professional <a onClick="goToByScroll('page3'); return false;" href="#"><span>Services</span></a> for Our <a onClick="goToByScroll('page4'); return false;" href="#"><em>Clients</em></a></h3>
 							<div class="text1">
 								<a href="http://blog.templatemonster.com/free-website-templates/" rel="nofollow" class="tm_link"> Click here</a> for more info about this free website template created by TemplateMonster.com <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mollis erat mattis neque facilisis, sit amet ultricies
 							</div>
                             -->
-                            <h3>INDRIYA2</h3>
-                            <div class="text1">
-                                Is a three-dimensional wireless sensor network deployed across three floors of the <a href="http://www.comp.nus.edu.sg/" target="_blank">School of Computing</a>, at the <a href="http://www.nus.edu.sg/" target="_blank">National University of Singapore</a>.
-                            </div>
-                            For more details about the design of indriya2, please proceed to <a onClick="goToByScroll('page4'); return false;" href="#"><em>Connectivity</em></a>.
-                            <br>
-                            <br>
-                            <div class="text1">
-                                The Testbed facilitates research in sensor network programming environments, communication protocols, system design, and applications. It provides a public, permanent framework for development and testing of sensor network protocols and applications.
-                            </div>
-                            <div class="text1">
-                                <br>
-                                Users can upload executables, associate those executables with motes to create a job, and schedule the job to run on the Testbed. During the job execution, users can monitor all messages and other data in real time through the web-based interface. Also, these data are logged to a database which is presented to the user upon job completion and then can be used for processing and visualization.
-                            </div>
-                            <br>
-                            <div class="text1">
-                                The design details of Indriya2 can be found in the paper <a href="https://indriya.comp.nus.edu.sg/Appavoo2019_Chapter_Indriya2AHeterogeneousWireless.pdf" target="_blank">here</a> published in Tridentcom [1]. Please use it for all the references of this testbed.
-                            </div>
+                        <h3>INDRIYA2</h3>
+                        <div class="text1">
+                            Is a three-dimensional wireless sensor network deployed across three floors of the <a href="http://www.comp.nus.edu.sg/" target="_blank">School of Computing</a>, at the <a href="http://www.nus.edu.sg/" target="_blank">National University of Singapore</a>.
+                        </div>
+                        For more details about the design of indriya2, please proceed to <a onClick="goToByScroll('page4'); return false;" href="#"><em>Connectivity</em></a>.
+                        <br>
+                        <br>
+                        <div class="text1">
+                            The Testbed facilitates research in sensor network programming environments, communication protocols, system design, and applications. It provides a public, permanent framework for development and testing of sensor network protocols and applications.
+                        </div>
+                        <div class="text1">
+                            <br> Users can upload executables, associate those executables with motes to create a job, and schedule the job to run on the Testbed. During the job execution, users can monitor all messages and other data in real time through
+                            the web-based interface. Also, these data are logged to a database which is presented to the user upon job completion and then can be used for processing and visualization.
+                        </div>
+                        <br>
+                        <div class="text1">
+                            The design details of Indriya2 can be found in the paper <a href="https://indriya.comp.nus.edu.sg/Appavoo2019_Chapter_Indriya2AHeterogeneousWireless.pdf" target="_blank">here</a> published in Tridentcom [1]. Please use it for
+                            all the references of this testbed.
                         </div>
                     </div>
                 </div>
             </div>
-            [1] P. Appavoo, Ebram K. William, M.C. Chan, and Mobashir Mohammad, "Indriya2: A Heterogeneous Wireless Sensor Network(WSN) Testbed," In TRIDENTCOM, 2018.
-            <br>
-            In 2004, the interface was originally conceived by <a href="https://www.bluegroup.systems/" target="_blank">Geoffrey Werner-Allen</a> and Matt Welsh for Harvard's <a href="http://motelab.eecs.harvard.edu/" target="_blank">Motelab</a> Testbed.
         </div>
-		
-        <div id="page3" class="content">
-			<div class="zerogrid">
-				<h3>NUS iot</h3>
-				<div class="col-1-3">
-					<div class="wrap-col">
-						<div class="box maxheight1">
-                            <img style="width: 150px; height: 150px;" src="images/chanmc2.jpg" alt="">
-                            <p class="text1" style="height: 50px;">Associate Professor</p>
-                            <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~chanmc" target="_blank">Prof. Chan Mun Choon</a></p>
-                            <p>Designer</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-1-3">
-					<div class="wrap-col">
-						<div class="box maxheight1">
-                            <img style="width: 150px; height: 150px;" src="images/vara.jpg" alt="">
-                            <p class="text1" style="height: 50px;">PhD Student</p>
-                            <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~pappavoo/" target="_blank">Paramasiven Appavoo</a></p>
-                            <p>Designer & Administrator</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-1-3">
-					<div class="wrap-col">
-						<div class="box maxheight1">
-                            <img style="width: 150px; height: 150px;" src="images/ebramkw2.jpg" alt="">
-                            <p class="text1" style="height: 50px;">PhD Student</p>
-                            <p style="height: 50px;"><a href="https://www.comp.nus.edu.sg/~ebramkw" target="_blank">Ebram Kamal William</a></p>
-                            <p>Designer & Administrator</p>
-                        </div>
-					</div>
-				</div>
-                <p>
-                    <a href="http://www.cir.nus.edu.sg/" target="_blank">Communications and Internet Research Lab</a><br>
-                    <a href="http://www.comp.nus.edu.sg/" target="_blank">School of Computing, National University of Singapore</a><br>
-                </p>
+        [1] P. Appavoo, Ebram K. William, M.C. Chan, and Mobashir Mohammad, "Indriya2: A Heterogeneous Wireless Sensor Network(WSN) Testbed," In TRIDENTCOM, 2018.
+        <br> In 2004, the interface was originally conceived by <a href="https://www.bluegroup.systems/" target="_blank">Geoffrey Werner-Allen</a> and Matt Welsh for Harvard's <a href="http://motelab.eecs.harvard.edu/" target="_blank">Motelab</a> Testbed.
+    </div>
 
-                <br>
-                <br>
-
-                <h3><a onclick="showAlumnusModal()">Alumnus</a></h3>
-
-                <!-- The Modal -->
-                <div id="alumnusModal" class="modal">
-                    <!-- Modal content -->
-                    <div class="modal-content" style="background-color: #32ac97;">
-                        <span class="close" onclick="spanAlumnusClick()">&times;</span>
-                    	<h3>INDRIYA2</h3>
-		                <div class="col-1-4">
-							<div class="wrap-col">
-								<div class="box maxheight0">
-		                            <img style="width: 100px; height: 100px;" src="images/Mobashir_ICA.jpg" alt="">
-		                            <!--<p class="text1" style="height: 50px;">PhD Student</p>-->
-		                            <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~mobashir" target="_blank">Mohammad Mobashir</a></p>
-		                            <p>Administrator</p>
-		                        </div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="box maxheight0">
-		                            <img style="width: 100px; height: 100px;" src="images/1manjunath.jpg" alt="">
-		                            <!--<p class="text1" style="height: 50px;">Research Staff</p>-->
-		                            <p style="height: 50px;"><a href="http://indriya.comp.nus.edu.sg/motelab/html/manjunath/index.html" target="_blank">Manjunath Doddavenkatappa</a></p>
-		                            <p>Primary designer</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="box maxheight0">
-		                            <img style="width: 100px; height: 100px;" src="images/2ananda.jpg" alt="">
-		                            <!--<p class="text1" style="height: 50px;">Professor</p>-->
-		                            <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~ananda" target="_blank">Prof. Ananda A.L</a></p>
-		                            <p>Designer</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="box maxheight0">
-		                            <img style="width: 100px; height: 100px;" src="images/4chetan.jpg" alt="">
-									<!--<p class="text1" style="height: 50px;">Research Assistant</p>-->
-		                            <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~chetan" target="_blank">Chetan Ganjihal</a></p>
-		                            <p>Designer</p>
-								</div>
-							</div>
-						</div>
-		                <p>
-		                    <a href="http://www.cir.nus.edu.sg/" target="_blank">Communications and Internet Research Lab</a><br>
-		                    <a href="http://www.comp.nus.edu.sg/" target="_blank">School of Computing, National University of Singapore</a><br>
-		                </p>
+    <div id="page3" class="content">
+        <div class="zerogrid">
+            <h3>NUS iot</h3>
+            <div class="col-1-3">
+                <div class="wrap-col">
+                    <div class="box maxheight1">
+                        <img style="width: 150px; height: 150px;" src="images/chanmc2.jpg" alt="">
+                        <p class="text1" style="height: 50px;">Associate Professor</p>
+                        <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~chanmc" target="_blank">Prof. Chan Mun Choon</a></p>
+                        <p>Designer</p>
                     </div>
                 </div>
-			</div>
-		</div>
-		
-        <div id="page4" class="content">
-			<div class="zerogrid">
-				<div class="col-full">
-					<div class="wrap-col">
-                        <h3>Connectivity</h3>
-                        
-                        <h3>
-                            Indriya2 has
-                            <ul id="pullets">
-                                <li>41 TelosBs</li>
-                                <li>17 CC2650 sensortags</li>
-                                <!--<li>5 motes of ZigBee</li>-->
-                            </ul>
-                        </h3>
-                        
-                        <input type="button" class="button2 add" value="Show map" onclick="showMap()">
-                        <!-- The Modal -->
-                        <div id="mapModal" class="modal">
-                            <!-- Modal content -->
-                            <div class="modal-content">
-                                <span class="close" onclick="spanMapClick()">&times;</span>
-                                <img src="images/map.png">
+            </div>
+            <div class="col-1-3">
+                <div class="wrap-col">
+                    <div class="box maxheight1">
+                        <img style="width: 150px; height: 150px;" src="images/vara.jpg" alt="">
+                        <p class="text1" style="height: 50px;">PhD Student</p>
+                        <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~pappavoo/" target="_blank">Paramasiven Appavoo</a></p>
+                        <p>Designer & Administrator</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1-3">
+                <div class="wrap-col">
+                    <div class="box maxheight1">
+                        <img style="width: 150px; height: 150px;" src="images/ebramkw2.jpg" alt="">
+                        <p class="text1" style="height: 50px;">PhD Student</p>
+                        <p style="height: 50px;"><a href="https://www.comp.nus.edu.sg/~ebramkw" target="_blank">Ebram Kamal William</a></p>
+                        <p>Designer & Administrator</p>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <a href="http://www.cir.nus.edu.sg/" target="_blank">Communications and Internet Research Lab</a><br>
+                <a href="http://www.comp.nus.edu.sg/" target="_blank">School of Computing, National University of Singapore</a><br>
+            </p>
+
+            <br>
+            <br>
+
+            <h3><a onclick="showAlumnusModal()">Alumnus</a></h3>
+
+            <!-- The Modal -->
+            <div id="alumnusModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content" style="background-color: #32ac97;">
+                    <span class="close" onclick="spanAlumnusClick()">&times;</span>
+                    <h3>INDRIYA2</h3>
+                    <div class="col-1-4">
+                        <div class="wrap-col">
+                            <div class="box maxheight0">
+                                <img style="width: 100px; height: 100px;" src="images/Mobashir_ICA.jpg" alt="">
+                                <!--<p class="text1" style="height: 50px;">PhD Student</p>-->
+                                <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~mobashir" target="_blank">Mohammad Mobashir</a></p>
+                                <p>Administrator</p>
                             </div>
                         </div>
-					</div>
-				</div>
-			</div>
-		</div>
-        
-        <div id="page0" class="content"></div>
-        
-        <div id="page5" class="content" style="display:none;">
-			<div class="zerogrid">
-                <div class="text1" id="userIDText" align="right"></div>
-                
-                <div class="col-full">
-					<div class="wrap-col">
-                        <div class="tab">
-                            <button class="tablinks" onclick="openTab(event, 'myJobs')" id="myJobsTab">My Jobs</button>
-                            
-                            <button class="tablinks" onclick="openTab(event, 'howToUse')" id="howToUseTab">How to use & FAQ</button>
-                            
-                            <button class="tablinks" onclick="openTab(event, 'userAccounts')" id="userAccountsTab">Admin</button>
-                            
-                            <button class="tablinks" onclick="openTab(event, 'Motes')" id="motesTab">Motes</button>
-                            
-                            <button class="buttonClass" onclick="signOut();">Sign out</button>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="wrap-col">
+                            <div class="box maxheight0">
+                                <img style="width: 100px; height: 100px;" src="images/1manjunath.jpg" alt="">
+                                <!--<p class="text1" style="height: 50px;">Research Staff</p>-->
+                                <p style="height: 50px;"><a href="http://indriya.comp.nus.edu.sg/motelab/html/manjunath/index.html" target="_blank">Manjunath Doddavenkatappa</a></p>
+                                <p>Primary designer</p>
+                            </div>
                         </div>
-
-                        <div id="myJobs" class="tabcontent">
-
-                            <label class="text1" style="color: black;" id="quotaReportLabel"></label>
-                            
-                            <br>
-                            <br>
-                            
-                            <div id="jobsTableDiv" class="text1">
-                                <button onclick="addJob();" title="Add a new job"><img src="images/icons8-plus-36.png"></button>
-                                <button onclick="refreshJobs();" title="Refresh jobs"><img src="images/icons8-synchronize-filled-36.png"></button>
-                                
-                                <br>
-                                <br>
-                                
-                                <label class="text1" id="jobsNumLabel" style = "float: left; color: black;"></label>
-                                
-                                <br>
-                                <br>
-                                
-                                <label id="jobsReportLabel"></label>
-                                
-                                <div class="table-scroll">
-                                    <table class="table table-hover table-expandable table-striped" width="100%" id="jobsTable" style="text-align: left;">
-                                        <thead>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                                <br>
-                                <br>
-                                
-                                <label class="text1" id="waitingJobsNumLabel" style = "float: left; color: black;"></label>
-                                
-                                <br>
-                                <br>
-                                
-                                <div class="table-scroll" style="display: none;" id="waiting-table-scroll">
-                                    <table style="text-align: left;" class="table table-hover table-expandable table-striped" width="100%" id="waitingJobsTable">
-                                        <thead>
-                                            <th>Job</th>
-                                            <th>Starts in (dd.hh:mm)</th>
-                                            <th>Duration (dd.hh:mm)</th>
-                                            <th></th>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                
-                                <br>
-                                <br>
-                                
-                                <label class="text1" id="runningJobsNumLabel" style = "float: left; color: black;"></label>
-                                
-                                <br>
-                                <br>
-
-                                <a class="a" id="showMQTT" onclick="connectMQTT()" style="display: none">Subscribe OR Publish in real time</a>
-		                        <!-- The Modal -->
-		                        <div id="mqttModal" class="modal">
-		                            <!-- Modal content -->
-		                            <div class="modal-content" style="color: #37637f">
-		                            	<span class="close" onclick="spanMQTTClick()">&times;</span>
-		                                <div style="border: 1px #37637f solid; position: fixed; height: 130px; background: white;" id="publish">
-		                                	<span class="close" onclick="spanMQTTPublishClick()">&times;</span>
-
-		                                	<table style="text-align: left; border-collapse:separate; border-spacing:15px 15px;">
-		                                		<tr>
-		                                			<td>
-			                                			<label class="text1" for="publish_msg">Message: <abbr title="required">*</abbr></label>
-			                                		</td>
-			                                		<td>
-					                                	<input class="text1" type="text" id="publish_msg" placeholder="Message" required/>
-					                            	</td>
-					                        	</tr>
-					                        	<tr>
-					                        		<td>
-					                            		<label class="text1" for="publish_moteID">Mote ID: <abbr title="required">*</abbr></label>
-					                        		</td>
-					                        	<td>
-					                                <input class="text1" type="text" id="publish_moteID" placeholder="Mote ID" required/>
-					                            </td>
-					                        </tr>
-					                        <tr>
-					                        	<td></td>
-					                        	<td>
-					                        		<input style="float: right;" class="button" type="button" id="btnPublish" onclick="publishToMQTT()" value="Publish">
-					                        	</td>
-					                        </tr>
-				                            </table>
-		                                </div>
-
-		                                <br>
-		                                <br>
-
-		                                <div class="wordwrap" style="margin-top: 130px; text-align: left;" id="mqttContainer"></div>
-		                            </div>
-		                        </div>
-                                
-                                <div class="table-scroll" style="display: none;" id="running-table-scroll">
-                                    <table style="text-align: left;" class="table table-hover table-expandable table-striped" width="100%" id="runningJobsTable">
-                                        <thead>
-                                            <th>Job</th>
-                                            <th>Finish in (dd.hh:mm)</th>
-                                            <th>Duration (dd.hh:mm)</th>
-                                            <th></th>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <br>
-                                <br>
-                                
-                                <label class="text1" id="terminatedJobsNumLabel" style = "float: left; color: black;"></label>
-                                
-                                <br>
-                                <br>
-                                
-                                <div class="table-scroll" style="display: none;" id="terminated-table-scroll">
-                                    <table style="text-align: left;" class="table table-hover table-expandable table-striped" width="100%" id="terminatedJobsTable">
-                                        <thead>
-                                            <th>Job</th>
-                                            <th>Start run time</th>
-                                            <th>Result</th>
-                                            <th></th>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <br>
-                                <br>
-
-                                <p>JOB DETAILS WILL BE AVAILABLE FOR UP TO SIX MONTHS AFTER CREATED.</p>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="wrap-col">
+                            <div class="box maxheight0">
+                                <img style="width: 100px; height: 100px;" src="images/2ananda.jpg" alt="">
+                                <!--<p class="text1" style="height: 50px;">Professor</p>-->
+                                <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~ananda" target="_blank">Prof. Ananda A.L</a></p>
+                                <p>Designer</p>
                             </div>
-                            
-                            <div id="cancelScheduleModal" class="modal">
-                                <!-- Modal content -->
-                                <div class="modal-content" style="color: #37637f">
-                                    <label class="text1">Canceling schedule...</label>
-                                    <br>
-                                    <br>
-                                    <label>This process will take more than one minute.</label>
-                                    <br>
-                                    <label>This windows will be closed automatically, please don't refresh or close your browser.</label>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-1-4">
+                        <div class="wrap-col">
+                            <div class="box maxheight0">
+                                <img style="width: 100px; height: 100px;" src="images/4chetan.jpg" alt="">
+                                <!--<p class="text1" style="height: 50px;">Research Assistant</p>-->
+                                <p style="height: 50px;"><a href="http://www.comp.nus.edu.sg/~chetan" target="_blank">Chetan Ganjihal</a></p>
+                                <p>Designer</p>
                             </div>
-                            
-                            <iframe id="frame1" style="display:none"></iframe>
-                            
+                        </div>
+                    </div>
+                    <p>
+                        <a href="http://www.cir.nus.edu.sg/" target="_blank">Communications and Internet Research Lab</a><br>
+                        <a href="http://www.comp.nus.edu.sg/" target="_blank">School of Computing, National University of Singapore</a><br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page4" class="content">
+        <div class="zerogrid">
+            <div class="col-full">
+                <div class="wrap-col">
+                    <h3>Connectivity</h3>
+
+                    <h3>
+                        Indriya2 has
+                        <ul id="pullets">
+                            <li>41 TelosBs</li>
+                            <li>17 CC2650 sensortags</li>
+                            <!--<li>5 motes of ZigBee</li>-->
+                        </ul>
+                    </h3>
+
+                    <input type="button" class="button2 add" value="Show map" onclick="showMap()">
+                    <!-- The Modal -->
+                    <div id="mapModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close" onclick="spanMapClick()">&times;</span>
+                            <img src="images/map.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page0" class="content"></div>
+
+    <div id="page5" class="content" style="display:none;">
+        <div class="zerogrid">
+            <div class="text1" id="userIDText" align="right"></div>
+
+            <div class="col-full">
+                <div class="wrap-col">
+                    <div class="tab">
+                        <button class="tablinks" onclick="openTab(event, 'myJobs')" id="myJobsTab">My Jobs</button>
+
+                        <button class="tablinks" onclick="openTab(event, 'howToUse')" id="howToUseTab">How to use & FAQ</button>
+
+                        <button class="tablinks" onclick="openTab(event, 'userAccounts')" id="userAccountsTab">Admin</button>
+
+                        <button class="tablinks" onclick="openTab(event, 'Motes')" id="motesTab">Motes</button>
+
+                        <button class="buttonClass" onclick="signOut();">Sign out</button>
+                    </div>
+
+                    <div id="myJobs" class="tabcontent">
+
+                        <label class="text1" style="color: black;" id="quotaReportLabel"></label>
+
+                        <br>
+                        <br>
+
+                        <div id="jobsTableDiv" class="text1">
+                            <button onclick="addJob();" title="Add a new job"><img src="images/icons8-plus-36.png"></button>
+                            <button onclick="refreshJobs();" title="Refresh jobs"><img src="images/icons8-synchronize-filled-36.png"></button>
+
                             <br>
                             <br>
-                            
-                            <div class="border" id="addJobDiv" style="display: none" align = "left">
-                                <legend id="addJobLegend">Add a job</legend>
-                                
-                                <table id="addJobTable" style="text-align: left; border-collapse:separate; border-spacing:0 15px;">
+
+                            <label class="text1" id="jobsNumLabel" style="float: left; color: black;"></label>
+
+                            <br>
+                            <br>
+
+                            <label id="jobsReportLabel"></label>
+
+                            <div class="table-scroll">
+                                <table class="table table-hover table-expandable table-striped" width="100%" id="jobsTable" style="text-align: left;">
                                     <thead>
-                                        <tr>
-                                            <td>
-                                                <label class="text1" for="jobNametxt">Job name: <abbr title="required">*</abbr></label>
-                                            </td>
-                                            <td>
-                                                <input class="text1" type="text" maxlength="89" onkeypress="return isNumberKey(event);" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" autocomplete=off id="jobNametxt" placeholder="Job name" required/>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label class="text1" for="moteTypesList">Mote Type: <abbr title="required">*</abbr></label>
-                                            </td>
-                                            <td>
-                                                <select class="text1" id = "moteTypesList" onchange="moteTypeSelected();" required></select>
-                                            </td>
-                                        </tr>
                                     </thead>
                                     <tbody>
-                                    	<table id="add_job_telosb_table" style="text-align: left; border-collapse:separate; border-spacing:0 15px;">
-		                                    <tbody></tbody>
-		                              	</table>
                                     </tbody>
                                 </table>
-                                
-                                <div id="nextAddJobButtons" align = "right">
-                                    <input class="button" type="button" id="btnNextCancelJob" onclick="nextCancelJob()" value="Cancel">
-                                    
-                                    <input class="button" type="button" id="btnNextAddJob" onclick="nextAddJobDB()" title = "Next to Add Associations" value="Next">
-                                </div>
-                                
-                                <div id="nextUpdateJobButtons" align = "right">
-                                    <input class="button" type="button" id="btnNextCancelJob" onclick="nextCancelJob()" value="Cancel">
-                                    
-                                    <input class="button" type="button" id="btnNextUpdateJob" onclick="nextUpdateJobDB()" title = "Next to Edit Associations" value="Next">
-                                </div>
                             </div>
-                            
-                            <div class="border" id="associationJobDiv" style="display: none" align = "left">
-                                <legend id="associationJobLegend">association of files</legend>
-                                
-                                <br>
-                                
-                                <label class="text1" id="associationJobNameLabel"></label>
-                                
-                                <br>
-                                <br>
-                                
-                                <div class="col-1-2">
-                                    <div class="wrap-col">
-                                        <label class="text1">Mote Type(s)</label>
-                                        <br>
-                                        <select class="text1" id = "associationMoteTypesList" size = "5" style="width: 100%" onchange="associationMoteTypeSelected()"></select>
-                                        
-                                        <input type="button" class="button add" value="Resources state" onclick="showResourcesState()">
-                                        <!-- The Modal -->
-                                        <div id="resourcesStateModal" class="modal">
-                                            <!-- Modal content -->
-                                            <div class="modal-content">
-                                                <span class="close" onclick="spanClick()">&times;</span>
-                                                <label class="text1" style="color: #37637f"> Real time resources state</label>
-                                                <br>
-                                                <div id="resourcesStateInfoModal"  style="color: #37637f; float: left">
-	                                                <label id="timeNowLabelResourcesState"></label>
-	                                                <br>
-	                                                <label>Use ctrl key and mouse scroll to zoom the timeline.</label>
-	                                                <br>
-					                                <label>Hold and drage to move backwards and forwards in the time range.</label>
-				                            	</div>
-                                				
-                                				<label id="loadingResourcesState" style="color: #37637f; float: center;">Loading...</label>
-                                                <div id="resourcesStateVisualization" style="display: none"></div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                
-                                <div class="col-1-2">
-                                    <div class="wrap-col">
-                                        <label class="text1">File(s)</label>
-                                        <br>
-                                        <select class="text1" id = "associationFilesList" size = "5" style="width: 100%"></select>
-                                        <br>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-full">
-                                    <div class="wrap-col">
-                                        <label class="text1" id="moteLabel">Mote(s)</label>
-                                        <label class="text1" id="clustersListState">No more free motes to select from!</label>
-                                        <div class="table-scroll" id="table-scroll" style="border: solid 0.5px orange">
-                                            <ul class="motesUL text1" id="clustersUL"></ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <br>
-                                
-                                <div id="addAssociationButton" align = "right">
-                                    <input class="button" type="button" title="Add Association" id="btnAddAssociation" onclick="addAssociation()" value="Add Association">
-                                </div>
-                                
-                                <br>
-                                
-                                <div class="container" id="associationTablesContainer">
-                                    <div class="box-title">Associated Files</div>
-                                </div>
-                                
-                                <br>
-                                <br>
-                                
-                                <div id="associationAddJobButtons" align = "right">
-                                    <input class="button" type="button" id="btnCancelAddJob" onclick="cancelJob()" value="Cancel">
-                                    
-                                    <input class="button" type="button" id="btnBackAddJob" onclick="backJob()" value="Back">
-                                    
-                                    <input class="button" type="button" id="btnAddJob" onclick="addJobDB()" value="Add Job">
-                                </div>
-                                
-                                <div id="associationUpdateJobButtons" align = "right">
-                                    <input class="button" type="button" id="btnCancelUpdateJob" onclick="cancelJob()" value="Cancel">
-                                    
-                                    <input class="button" type="button" id="btnBackUpdateJob" onclick="backJob()" value="Back">
-                                    
-                                    <input class="button" type="button" id="btnUpdateJob" onclick="updateJobDB()" value="Update Job">
-                                </div>
-                                
-                                <div id="addJobModal" class="modal">
-                                    <!-- Modal content -->
-                                    <div class="modal-content" style="color: #37637f">
-                                        <div style="display: none" id="uploadingAddJob">
-                                            <label style="text1">Uploading...</label>
-                                            <br>
-                                            <br>
-                                            <label>Please don't refresh or close your browser.</label>
-                                        </div>
-                                        
-                                        <div style="display: none" id="errorAddJob">
-                                            <span class="close" onclick="spanErrorAddJobClick()">&times;</span>
-                                            
-                                            <label style="text1">Error occurred, please try again later!</label>
-                                        </div>
 
-                                        <div style="display: none" id="errorAddJobUnsupportedFile">
-                                            <span class="close" onclick="spanErrorAddJobClick()">&times;</span>
-                                            
-                                            <label style="text1">Error, unsupported file format</label>
+                            <br>
+                            <br>
 
-                                            <br>
+                            <label class="text1" id="waitingJobsNumLabel" style="float: left; color: black;"></label>
 
-                                            <label style="text1">File(s): </label>
-                                            <div style="text1" id="unsupportedFiles"></div>
-                                        </div>
-                                        
-                                        <div style="display: none" id="successAddJob">
-                                            <span class="close" onclick="spanSuccessAddJobClick()">&times;</span>
-                                            
-                                            <label style="text1">Job submitted successfully.</label>
-                                            
-                                            <br>
-                                            <br>
-                                            
-                                            <label style="text1">Would you like to schedule this job now?</label>
-                                            
-                                            <br>
-                                            
-                                            <div id="nextUpdateJobButtons" align = "right">
-                                                <input class="button" type="button" id="btnCancelScheduleJobAddJob" onclick="spanSuccessAddJobClick()" value="Schedule later">
+                            <br>
+                            <br>
 
-                                                <input class="button" type="button" id="btnScheduleNowJobAddJob" onclick="scheduleNowJobAddJobClick()" value="Schedule now">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="border" id="scheduleJobDiv" style="display: none">
-                                <legend id="scheduleJobLegend">Schedule a job</legend>
-                                <table style="text-align: left; border-collapse:separate; border-spacing:0 15px;">
-                                    <tr>
-                                        <td>
-                                            <label class="text1" for="durationJob">Duration:</label>
-                                        </td>
-                                        <td>
-                                            <input class="text1" style="width: 7em" type="number" value="5" min="10" step="5" id="durationJob" onkeypress="return isNumberDurationKey(event);" onchange="durationChanged();"/>
-                                            <label class="text1">Minutes</label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="text1">Start at:</label>
-                                        </td>
-                                    </tr>
+                            <div class="table-scroll" style="display: none;" id="waiting-table-scroll">
+                                <table style="text-align: left;" class="table table-hover table-expandable table-striped" width="100%" id="waitingJobsTable">
+                                    <thead>
+                                        <th>Job</th>
+                                        <th>Starts in (dd.hh:mm)</th>
+                                        <th>Duration (dd.hh:mm)</th>
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
                                 </table>
-                                
-                                <div id="zoomButtons">
-                                    <button style="float: right;" onclick="zoomOut();" onmousedown="zoomOutDown();" onmouseup="zoomOutUp();" title="Zoom Out"><img src="images/icons8-ZoomOut_16.png"></button>
-                                    <button style="float: right;" onclick="zoomIn();" onmousedown="zoomInDown();" onmouseup="zoomInUp();" title="Zoom In"><img src="images/icons8-ZoomIn_16.png"></button>
+                            </div>
+
+                            <br>
+                            <br>
+
+                            <label class="text1" id="runningJobsNumLabel" style="float: left; color: black;"></label>
+
+                            <br>
+                            <br>
+
+                            <a class="a" id="showMQTT" onclick="connectMQTT()" style="display: none">Subscribe OR Publish in real time</a>
+                            <!-- The Modal -->
+                            <div id="mqttModal" class="modal">
+                                <!-- Modal content -->
+                                <div class="modal-content" style="color: #37637f">
+                                    <span class="close" onclick="spanMQTTClick()">&times;</span>
+                                    <div style="border: 1px #37637f solid; position: fixed; height: 130px; background: white;" id="publish">
+                                        <span class="close" onclick="spanMQTTPublishClick()">&times;</span>
+
+                                        <table style="text-align: left; border-collapse:separate; border-spacing:15px 15px;">
+                                            <tr>
+                                                <td>
+                                                    <label class="text1" for="publish_msg">Message: <abbr title="required">*</abbr></label>
+                                                </td>
+                                                <td>
+                                                    <input class="text1" type="text" id="publish_msg" placeholder="Message" required/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="text1" for="publish_moteID">Mote ID: <abbr title="required">*</abbr></label>
+                                                </td>
+                                                <td>
+                                                    <input class="text1" type="text" id="publish_moteID" placeholder="Mote ID" required/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <input style="float: right;" class="button" type="button" id="btnPublish" onclick="publishToMQTT()" value="Publish">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <br>
+                                    <br>
+
+                                    <div class="wordwrap" style="margin-top: 130px; text-align: left;" id="mqttContainer"></div>
                                 </div>
-                                
-                                <label style="float: left">Use zoom buttons or mouse scroll to zoom the timeline.</label>
-                                <label style="float: left">Hold and drage to move backwards and forwards in the time range.</label>
-                                <label style="float: left">To select, double click a free slot.</label>
-                                <label style="float: left">To cancel your selection, select it and tap the delete button top right.</label>
-                                
-                                <div>
-                                    <div id="visualization"></div>
-                                </div>
-                                
+                            </div>
+
+                            <div class="table-scroll" style="display: none;" id="running-table-scroll">
+                                <table style="text-align: left;" class="table table-hover table-expandable table-striped" width="100%" id="runningJobsTable">
+                                    <thead>
+                                        <th>Job</th>
+                                        <th>Finish in (dd.hh:mm)</th>
+                                        <th>Duration (dd.hh:mm)</th>
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <br>
+                            <br>
+
+                            <label class="text1" id="terminatedJobsNumLabel" style="float: left; color: black;"></label>
+
+                            <br>
+                            <br>
+
+                            <div class="table-scroll" style="display: none;" id="terminated-table-scroll">
+                                <table style="text-align: left;" class="table table-hover table-expandable table-striped" width="100%" id="terminatedJobsTable">
+                                    <thead>
+                                        <th>Job</th>
+                                        <th>Start run time</th>
+                                        <th>Result</th>
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <br>
+                            <br>
+
+                            <p>JOB DETAILS WILL BE AVAILABLE FOR UP TO SIX MONTHS AFTER CREATED.</p>
+                        </div>
+
+                        <div id="cancelScheduleModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content" style="color: #37637f">
+                                <label class="text1">Canceling schedule...</label>
                                 <br>
                                 <br>
-                                
-                                <div id="scheduleButtons" align = "right">
-                                    <input class="button" type="button" id="btnCancelScheduleJob" onclick="cancelScheduleJob()" value="Cancel">
-                                    
-                                    <input class="button" type="button" id="btnScheduleJob" onclick="ScheduleJobDB()" value="Schedule Job">
+                                <label>This process will take more than one minute.</label>
+                                <br>
+                                <label>This windows will be closed automatically, please don't refresh or close your browser.</label>
+                            </div>
+                        </div>
+
+                        <iframe id="frame1" style="display:none"></iframe>
+
+                        <br>
+                        <br>
+
+                        <div class="border" id="addJobDiv" style="display: none" align="left">
+                            <legend id="addJobLegend">Add a job</legend>
+
+                            <table id="addJobTable" style="text-align: left; border-collapse:separate; border-spacing:0 15px;">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <label class="text1" for="jobNametxt">Job name: <abbr title="required">*</abbr></label>
+                                        </td>
+                                        <td>
+                                            <input class="text1" type="text" maxlength="89" onkeypress="return isNumberKey(event);" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" autocomplete=off id="jobNametxt" placeholder="Job name" required/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="text1" for="moteTypesList">Mote Type: <abbr title="required">*</abbr></label>
+                                        </td>
+                                        <td>
+                                            <select class="text1" id="moteTypesList" onchange="moteTypeSelected();" required></select>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <table id="add_job_telosb_table" style="text-align: left; border-collapse:separate; border-spacing:0 15px;">
+                                        <tbody></tbody>
+                                    </table>
+                                </tbody>
+                            </table>
+
+                            <div id="nextAddJobButtons" align="right">
+                                <input class="button" type="button" id="btnNextCancelJob" onclick="nextCancelJob()" value="Cancel">
+
+                                <input class="button" type="button" id="btnNextAddJob" onclick="nextAddJobDB()" title="Next to Add Associations" value="Next">
+                            </div>
+
+                            <div id="nextUpdateJobButtons" align="right">
+                                <input class="button" type="button" id="btnNextCancelJob" onclick="nextCancelJob()" value="Cancel">
+
+                                <input class="button" type="button" id="btnNextUpdateJob" onclick="nextUpdateJobDB()" title="Next to Edit Associations" value="Next">
+                            </div>
+                        </div>
+
+                        <div class="border" id="associationJobDiv" style="display: none" align="left">
+                            <legend id="associationJobLegend">association of files</legend>
+
+                            <br>
+
+                            <label class="text1" id="associationJobNameLabel"></label>
+
+                            <br>
+                            <br>
+
+                            <div class="col-1-2">
+                                <div class="wrap-col">
+                                    <label class="text1">Mote Type(s)</label>
+                                    <br>
+                                    <select class="text1" id="associationMoteTypesList" size="5" style="width: 100%" onchange="associationMoteTypeSelected()"></select>
+
+                                    <input type="button" class="button add" value="Resources state" onclick="showResourcesState()">
+                                    <!-- The Modal -->
+                                    <div id="resourcesStateModal" class="modal">
+                                        <!-- Modal content -->
+                                        <div class="modal-content">
+                                            <span class="close" onclick="spanClick()">&times;</span>
+                                            <label class="text1" style="color: #37637f"> Real time resources state</label>
+                                            <br>
+                                            <div id="resourcesStateInfoModal" style="color: #37637f; float: left">
+                                                <label id="timeNowLabelResourcesState"></label>
+                                                <br>
+                                                <label>Use ctrl key and mouse scroll to zoom the timeline.</label>
+                                                <br>
+                                                <label>Hold and drage to move backwards and forwards in the time range.</label>
+                                            </div>
+
+                                            <label id="loadingResourcesState" style="color: #37637f; float: center;">Loading...</label>
+                                            <div id="resourcesStateVisualization" style="display: none"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-1-2">
+                                <div class="wrap-col">
+                                    <label class="text1">File(s)</label>
+                                    <br>
+                                    <select class="text1" id="associationFilesList" size="5" style="width: 100%"></select>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="col-full">
+                                <div class="wrap-col">
+                                    <label class="text1" id="moteLabel">Mote(s)</label>
+                                    <label class="text1" id="clustersListState">No more free motes to select from!</label>
+                                    <div class="table-scroll" id="table-scroll" style="border: solid 0.5px orange">
+                                        <ul class="motesUL text1" id="clustersUL"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div id="addAssociationButton" align="right">
+                                <input class="button" type="button" title="Add Association" id="btnAddAssociation" onclick="addAssociation()" value="Add Association">
+                            </div>
+
+                            <br>
+
+                            <div class="container" id="associationTablesContainer">
+                                <div class="box-title">Associated Files</div>
+                            </div>
+
+                            <br>
+                            <br>
+
+                            <div id="associationAddJobButtons" align="right">
+                                <input class="button" type="button" id="btnCancelAddJob" onclick="cancelJob()" value="Cancel">
+
+                                <input class="button" type="button" id="btnBackAddJob" onclick="backJob()" value="Back">
+
+                                <input class="button" type="button" id="btnAddJob" onclick="addJobDB()" value="Add Job">
+                            </div>
+
+                            <div id="associationUpdateJobButtons" align="right">
+                                <input class="button" type="button" id="btnCancelUpdateJob" onclick="cancelJob()" value="Cancel">
+
+                                <input class="button" type="button" id="btnBackUpdateJob" onclick="backJob()" value="Back">
+
+                                <input class="button" type="button" id="btnUpdateJob" onclick="updateJobDB()" value="Update Job">
+                            </div>
+
+                            <div id="addJobModal" class="modal">
+                                <!-- Modal content -->
+                                <div class="modal-content" style="color: #37637f">
+                                    <div style="display: none" id="uploadingAddJob">
+                                        <label class="text1">Uploading...</label>
+                                        <br>
+                                        <br>
+                                        <label>Please don't refresh or close your browser.</label>
+                                    </div>
+
+                                    <div style="display: none" id="errorAddJob">
+                                        <span class="close" onclick="spanErrorAddJobClick()">&times;</span>
+
+                                        <label class="text1">Error occurred, please try again later!</label>
+                                    </div>
+
+                                    <div style="display: none" id="errorAddJobUnsupportedFile">
+                                        <span class="close" onclick="spanErrorAddJobClick()">&times;</span>
+
+                                        <label class="text1">Error, unsupported file format</label>
+
+                                        <br>
+
+                                        <label class="text1">File(s): </label>
+                                        <div class="text1" id="unsupportedFiles"></div>
+                                    </div>
+
+                                    <div style="display: none" id="successAddJob">
+                                        <span class="close" onclick="spanSuccessAddJobClick()">&times;</span>
+
+                                        <label class="text1">Job submitted successfully.</label>
+
+                                        <br>
+                                        <br>
+
+                                        <label class="text1">Would you like to schedule this job now?</label>
+
+                                        <br>
+
+                                        <div id="nextUpdateJobButtons" align="right">
+                                            <input class="button" type="button" id="btnCancelScheduleJobAddJob" onclick="spanSuccessAddJobClick()" value="Schedule later">
+
+                                            <input class="button" type="button" id="btnScheduleNowJobAddJob" onclick="scheduleNowJobAddJobClick()" value="Schedule now">
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        
-                        <div id="howToUse" class="tabcontent">
-				<div style="border-top: solid;">
-                                        <br>
 
-                                        <h3>How to use</h3>
+                        <div class="border" id="scheduleJobDiv" style="display: none">
+                            <legend id="scheduleJobLegend">Schedule a job</legend>
+                            <table style="text-align: left; border-collapse:separate; border-spacing:0 15px;">
+                                <tr>
+                                    <td>
+                                        <label class="text1" for="durationJob">Duration:</label>
+                                    </td>
+                                    <td>
+                                        <input class="text1" style="width: 7em" type="number" value="5" min="10" step="5" id="durationJob" onkeypress="return isNumberDurationKey(event);" onchange="durationChanged();" />
+                                        <label class="text1">Minutes</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="text1">Start at:</label>
+                                    </td>
+                                </tr>
+                            </table>
 
-                                        <br>
-					<iframe src="https://docs.google.com/document/d/e/2PACX-1vSEN1VmASNE-kpHFLEEIum2qGwJJMYU0GLvAWzUoZbdiMEa-2Ok2SduoE5MXBFgWqmaplkDu-5CVliD/pub?embedded=true" width="100%" height="200"></iframe>
-                           	</div>
-				<!--  <div style="text-align: left" class="text1">
+                            <div id="zoomButtons">
+                                <button style="float: right;" onclick="zoomOut();" onmousedown="zoomOutDown();" onmouseup="zoomOutUp();" title="Zoom Out"><img src="images/icons8-ZoomOut_16.png"></button>
+                                <button style="float: right;" onclick="zoomIn();" onmousedown="zoomInDown();" onmouseup="zoomInUp();" title="Zoom In"><img src="images/icons8-ZoomIn_16.png"></button>
+                            </div>
+
+                            <label style="float: left">Use zoom buttons or mouse scroll to zoom the timeline.</label>
+                            <label style="float: left">Hold and drage to move backwards and forwards in the time range.</label>
+                            <label style="float: left">To select, double click a free slot.</label>
+                            <label style="float: left">To cancel your selection, select it and tap the delete button top right.</label>
+
+                            <div>
+                                <div id="visualization"></div>
+                            </div>
+
+                            <br>
+                            <br>
+
+                            <div id="scheduleButtons" align="right">
+                                <input class="button" type="button" id="btnCancelScheduleJob" onclick="cancelScheduleJob()" value="Cancel">
+
+                                <input class="button" type="button" id="btnScheduleJob" onclick="ScheduleJobDB()" value="Schedule Job">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="howToUse" class="tabcontent">
+                        <div style="border-top: solid;">
+                            <br>
+
+                            <h3>How to use</h3>
+
+                            <br>
+                            <iframe src="https://docs.google.com/document/d/e/2PACX-1vSEN1VmASNE-kpHFLEEIum2qGwJJMYU0GLvAWzUoZbdiMEa-2Ok2SduoE5MXBFgWqmaplkDu-5CVliD/pub?embedded=true" width="100%" height="200"></iframe>
+                        </div>
+                        <!--  <div style="text-align: left" class="text1">
                             	<h3>How to use</h3>
                             	<ol style="list-style-type: disc">
 	                                <li>To add a job:</li>
@@ -778,25 +789,25 @@
 	                                </ol>
 	                            </ol> -->
 
-                                <br>
+                        <br>
 
-                                <div style="border-top: solid;">
-                                	<br>
-                                	
-	                                <h3>FAQ</h3>
-
-	                                <br>
-
-	                                <iframe src="https://docs.google.com/document/d/e/2PACX-1vSiE_fbY0YfHr66ud6HlTY_yG_kWifm8yA8fHKCALzj-5C4Ex15ERnhyKj80P7awi_WbRKDZ6PYPByK/pub?embedded=true" width="100%" height="200"></iframe>
-                                </div>
-                            </div>
-
-                        </div>
-                        
-                        <div id="userAccounts" class="tabcontent">
+                        <div style="border-top: solid;">
                             <br>
-                            
-                            <label class="text1" for="userIDtxt">email: <abbr title="required">*</abbr>
+
+                            <h3>FAQ</h3>
+
+                            <br>
+
+                            <iframe src="https://docs.google.com/document/d/e/2PACX-1vSiE_fbY0YfHr66ud6HlTY_yG_kWifm8yA8fHKCALzj-5C4Ex15ERnhyKj80P7awi_WbRKDZ6PYPByK/pub?embedded=true" width="100%" height="200"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="userAccounts" class="tabcontent">
+                    <br>
+
+                    <label class="text1" for="userIDtxt">email: <abbr title="required">*</abbr>
 
                                 <input class="text1" type="text" id="userIDtxt" onkeypress = "if (event.keyCode == 13)document.getElementById('btnSearch').click(); else return isNumberKeyUserID(event);" onCopy="return false" onDrag="return false" onDrop="return false"  autocomplete=off placeholder="User's email" required/>
                             
@@ -804,269 +815,270 @@
                                 <input class="button" type="button" id="btnSearch" onclick="showUser(document.getElementById('userIDtxt').value)" value="Search">
                             </label>
 
-                            <br>
-                            <br>
-                            
-                            <input class="button" type="button" id="btnShowStatistics" onclick="showStatistics()" value="Show Statistics">
+                    <br>
+                    <br>
 
-                            <input class="button" type="button" id="btnShowAllTimeUsage" onclick="showAllTimeUsage()" value="Show Current Month Usage">
+                    <input class="button" type="button" id="btnShowStatistics" onclick="showStatistics()" value="Show Statistics">
 
+                    <input class="button" type="button" id="btnShowAllTimeUsage" onclick="showAllTimeUsage()" value="Show Current Month Usage">
+
+                    <br>
+                    <br>
+
+                    <input class="button" type="button" id="btnClearAllUpcomingJobs" onclick="clearAllUpcomingJobs()" value="Clear all upcoming jobs">
+
+                    <!-- The Modal -->
+                    <div id="resourcesAllTimeUsageModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close" onclick="spanClick()">&times;</span>
+                            <label class="text1" style="color: #37637f; float: left;"> Real time resources state</label>
                             <br>
-                            <br>
-
-                            <input class="button" type="button" id="btnClearAllUpcomingJobs" onclick="clearAllUpcomingJobs()" value="Clear all upcoming jobs">
-
-                            <!-- The Modal -->
-                            <div id="resourcesAllTimeUsageModal" class="modal">
-                                <!-- Modal content -->
-                                <div class="modal-content">
-                                    <span class="close" onclick="spanClick()">&times;</span>
-                                    <label class="text1" style="color: #37637f; float: left;"> Real time resources state</label>
-                                    <br>
-                                    <div style="color: #37637f;" id="resourcesAllTimeUsageInfoModal">
-	                                    <label style="float: left;" id="timeNowLabelResourcesAllTimeUsage"></label>
-	                                    <br>
-	                                    <label style="float: left;">Use ctrl key and mouse scroll to zoom the timeline.</label>
-	                                    <br>
-		                                <label style="float: left;">Hold and drage to move backwards and forwards in the time range.</label>
-		                            </div>
-                                	<label id="loadingResourcesAllTimeUsage" style="color: #37637f; float: center;">Loading...</label>
-                                    <div id="resourcesStateAllTimeUsageVisualization"></div>
-                                </div>
+                            <div style="color: #37637f;" id="resourcesAllTimeUsageInfoModal">
+                                <label style="float: left;" id="timeNowLabelResourcesAllTimeUsage"></label>
+                                <br>
+                                <label style="float: left;">Use ctrl key and mouse scroll to zoom the timeline.</label>
+                                <br>
+                                <label style="float: left;">Hold and drage to move backwards and forwards in the time range.</label>
                             </div>
-                                
-                            <br>
-                            <br>
-                            
-                            <div class="text1" id="tableUsersInfo" style="display: none">
-                                <button style="float: right;" onclick="printDiv('usersTable')" title="Print users statistics"><img src="images/icons8-Print_26.png"></button>
-                                
-                                <br>
-                                <br>
-                                
-                                <div class="table-scroll" id="table-scroll">
-                                    <table class="table table-hover table-expandable table-striped" width="100%" id="usersTable">
-                                        <thead>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                        <tfoot>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                                
-                                <br>
-                                <br>
-                                
-                                <button style="float: right;" onclick="printDiv('motesTable')" title="Print mote types statistics"><img src="images/icons8-Print_26.png"></button>
-                                
-                                <br>
-                                <br>
-                                
-                                <div class="table-scroll" id="table-scroll">
-                                    <table class="table table-hover table-expandable table-striped" width="100%" id="motesTable">
-                                        <thead>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                        <tfoot>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                            </div>
-                            
-                            <div class="text1" id="userAccountForm" align="left" style="display:none;">
-                            	<button style="float: right;" onclick="printDiv('userInfoTable')" title="Print user statistics"><img src="images/icons8-Print_26.png"></button>
-
-                                <table id="userInfoTable" style="text-align: left; border-collapse:separate; border-spacing:0 15px;">
-                                	<caption style="color: black" class="text1" id="userIDLabelFill"></caption>
-                                    <tr>
-                                        <td>
-                                            <label class="text1" for="quotatxt">Quota: <abbr title="required">*</abbr></label>
-                                        </td>
-                                        <td>
-                                            <input class="text1" type="number" min="0" step="5" id="quotatxt" style="width: 7em" onchange="itemChanged()" onkeypress = "if (event.keyCode == 13)document.getElementById('btnUpdate').click(); else return isNumberDurationKey(event);"/>Minutes
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="text1" for="adminList">Admin: <abbr title="required">*</abbr></label>
-                                        </td>
-                                        <td>
-                                            <select class="text1" id = "adminList" onchange="itemChanged()" required>
-                                                <option value = "1">True</option>
-                                                <option value = "0">False</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="text1" for="allMotesList">Use all Motes: <abbr title="required">*</abbr></label>
-                                        </td>
-                                        <td>
-                                            <select class="text1" id = "allMotesList" onchange="itemChanged()" required>
-                                                <option value = "1">True</option>
-                                                <option value = "0">False</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="text1">Total number of submissions</label>
-                                        </td>
-                                        <td>
-                                            <label class="text1" id="userNumberOfSubmissions"></label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="text1">Total running time</label>
-                                        </td>
-                                        <td>
-                                            <label class="text1" id="userNumberOfRunningTime"></label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="text1">Created date</label>
-                                        </td>
-                                        <td>
-                                            <label class="text1" id="userCreatedDate"></label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <label class="text1">Details</label>
-                                        </td>
-                                        <td>
-                                            <textarea rows="4" cols="200" wrap="soft"class="text1" id="userDetails" onchange="itemChanged()"></textarea>
-                                        </td>
-                                    </tr>
-                                </table>
-                                
-                                <input class="button" type="button" id="btnCancel" value="Cancel" onclick="cancelUserUpdate()">
-                                
-                                <input class="button" type="button" id="btnUpdate" value="Update" onclick="updateUserInfo(document.getElementById('userIDLabelFill').innerHTML);">
-
-                                <br>
-                                <br>
-                                
-                                <input class="button" type="button" id="btnremove" value="Remove User" onclick="removeUser()">
-                                
-                                <br>
-                                <br>
-                                
-                                <label class="text1" id="updateNotify"></label>
-                            </div>
+                            <label id="loadingResourcesAllTimeUsage" style="color: #37637f; float: center;">Loading...</label>
+                            <div id="resourcesStateAllTimeUsageVisualization"></div>
                         </div>
-                        
-                        <div id="Motes" class="tabcontent">
-                            <div class="border">
-                                <legend>Mote Types</legend>
-                                
-                                <div class="text1 table-scroll" id="table-scroll">
-                                    <table class="table table-hover table-expandable table-striped" width="100%" id="moteTypes_data_table">
-                                    <tr>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <div class="text1" id="tableUsersInfo" style="display: none">
+                        <button style="float: right;" onclick="printDiv('usersTable')" title="Print users statistics"><img src="images/icons8-Print_26.png"></button>
+
+                        <br>
+                        <br>
+
+                        <div class="table-scroll" id="table-scroll">
+                            <table class="table table-hover table-expandable table-striped" width="100%" id="usersTable">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <button style="float: right;" onclick="printDiv('motesTable')" title="Print mote types statistics"><img src="images/icons8-Print_26.png"></button>
+
+                        <br>
+                        <br>
+
+                        <div class="table-scroll" id="table-scroll">
+                            <table class="table table-hover table-expandable table-striped" width="100%" id="motesTable">
+                                <thead>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="text1" id="userAccountForm" align="left" style="display:none;">
+                        <button style="float: right;" onclick="printDiv('userInfoTable')" title="Print user statistics"><img src="images/icons8-Print_26.png"></button>
+
+                        <table id="userInfoTable" style="text-align: left; border-collapse:separate; border-spacing:0 15px;">
+                            <caption style="color: black" class="text1" id="userIDLabelFill"></caption>
+                            <tr>
+                                <td>
+                                    <label class="text1" for="quotatxt">Quota: <abbr title="required">*</abbr></label>
+                                </td>
+                                <td>
+                                    <input class="text1" type="number" min="0" step="5" id="quotatxt" style="width: 7em" onchange="itemChanged()" onkeypress="if (event.keyCode == 13)document.getElementById('btnUpdate').click(); else return isNumberDurationKey(event);" />Minutes
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="text1" for="adminList">Admin: <abbr title="required">*</abbr></label>
+                                </td>
+                                <td>
+                                    <select class="text1" id="adminList" onchange="itemChanged()" required>
+                                                <option value = "1">True</option>
+                                                <option value = "0">False</option>
+                                            </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="text1" for="allMotesList">Use all Motes: <abbr title="required">*</abbr></label>
+                                </td>
+                                <td>
+                                    <select class="text1" id="allMotesList" onchange="itemChanged()" required>
+                                                <option value = "1">True</option>
+                                                <option value = "0">False</option>
+                                            </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="text1">Total number of submissions</label>
+                                </td>
+                                <td>
+                                    <label class="text1" id="userNumberOfSubmissions"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="text1">Total running time</label>
+                                </td>
+                                <td>
+                                    <label class="text1" id="userNumberOfRunningTime"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="text1">Created date</label>
+                                </td>
+                                <td>
+                                    <label class="text1" id="userCreatedDate"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="text1">Details</label>
+                                </td>
+                                <td>
+                                    <textarea rows="4" cols="200" wrap="soft" class="text1" id="userDetails" onchange="itemChanged()"></textarea>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <input class="button" type="button" id="btnCancel" value="Cancel" onclick="cancelUserUpdate()">
+
+                        <input class="button" type="button" id="btnUpdate" value="Update" onclick="updateUserInfo(document.getElementById('userIDLabelFill').innerHTML);">
+
+                        <br>
+                        <br>
+
+                        <input class="button" type="button" id="btnremove" value="Remove User" onclick="removeUser()">
+
+                        <br>
+                        <br>
+
+                        <label class="text1" id="updateNotify"></label>
+                    </div>
+                </div>
+
+                <div id="Motes" class="tabcontent">
+                    <div class="border">
+                        <legend>Mote Types</legend>
+
+                        <div class="text1 table-scroll" id="table-scroll">
+                            <table class="table table-hover table-expandable table-striped" width="100%" id="moteTypes_data_table">
+                                <tr>
                                     <th>Mote Type Name</th>
                                     <th style="width: 110px"></th>
-                                    </tr>
+                                </tr>
 
-                                    <tr>
-                                    <td><input type="text" class="text1" id="new_moteType_name" onkeypress = "if (event.keyCode == 13)document.getElementById('addMoteTypebtn').click();" required></td>
+                                <tr>
+                                    <td><input type="text" class="text1" id="new_moteType_name" onkeypress="if (event.keyCode == 13)document.getElementById('addMoteTypebtn').click();" required></td>
                                     <td><input id="addMoteTypebtn" class="button" type="button" class="add" onclick="add_moteType_row();" value="Add Row" style="float: left"></td>
-                                    </tr>
+                                </tr>
 
-                                    </table>
-                                </div>
-                                
-                            </div>
-                            
-                            <br>
-                            
-                            <div class="border">
-                                <legend>Clusters</legend>
-                                
-                                <div class="text1 table-scroll" id="table-scroll">
-                                    <table class="table table-hover table-expandable table-striped" width="100%" id="clusters_data_table">
-                                    <tr>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="border">
+                        <legend>Clusters</legend>
+
+                        <div class="text1 table-scroll" id="table-scroll">
+                            <table class="table table-hover table-expandable table-striped" width="100%" id="clusters_data_table">
+                                <tr>
                                     <th>Cluster Name</th>
                                     <th>Floor Level</th>
                                     <th style="width: 110px"></th>
-                                    </tr>
+                                </tr>
 
-                                    <tr>
-                                    <td><input type="text" class="text1" id="new_cluster_name" style="width: 180px" onkeypress = "if (event.keyCode == 13)document.getElementById('addClusterbtn').click();" required></td>
-                                    <td><input type="text" class="text1" id="new_floorLevel_name" style="width: 180px" onkeypress = "if (event.keyCode == 13)document.getElementById('addClusterbtn').click();" required></td>
+                                <tr>
+                                    <td><input type="text" class="text1" id="new_cluster_name" style="width: 180px" onkeypress="if (event.keyCode == 13)document.getElementById('addClusterbtn').click();" required></td>
+                                    <td><input type="text" class="text1" id="new_floorLevel_name" style="width: 180px" onkeypress="if (event.keyCode == 13)document.getElementById('addClusterbtn').click();" required></td>
                                     <td><input id="addClusterbtn" type="button" class="button add" onclick="add_cluster_row();" value="Add Row" style="float: left"></td>
-                                    </tr>
+                                </tr>
 
-                                    </table>
-                                </div>
-                                
-                            </div>
-                            
-                            <br>
-                            
-                            <div class="border">
-                                <legend>Motes</legend>
-                                
-                                <div  id="table-scroll" class="text1 table-scroll">
-                                    <table class="table table-hover table-expandable table-striped" width="100%" id="motes_data_table">
-                                    <tr>
-                                        <th style="padding-right:10px">Physical ID</th>
-                                        <th style="padding-right:10px">Virtual ID</th>
-                                        <th style="padding-right:10px">Gateway IP</th>
-                                        <th style="padding-right:10px">Gateway ttyid</th>
-                                        <th style="padding-right:10px">Gateway Port</th>
-                                        <th style="padding-right:10px">Coordinates</th>
-                                        <th style="padding-right:10px">Mote Type</th>
-                                        <th style="padding-right:10px">Cluster</th>
-                                        <th style="padding-right:10px">Status</th>
-                                        
-                                        <th style="width: 110px"></th>
-                                    </tr>
-
-                                    <tr>
-                                        <td><input type="text" class="text1" id="new_mote_physical_id" placeholder="manufacturer id" style="width: 80px" onkeypress = "if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
-                                        
-                                        <td><input type="text" class="text1" id="new_mote_virtual_id" placeholder="nodeid when running experiment" style="width: 80px" onkeypress = "if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
-                                        
-                                        <td><input type="text" class="text1" id="new_mote_gateway_ip" style="width: 80px" onkeypress = "if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
-                                        
-                                        <td><input type="text" class="text1" id="new_mote_gateway_ttyid" placeholder="/dev/ttyUSB0" style="width: 80px" onkeypress = "if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
-                                        
-                                        <td><input type="text" class="text1" id="new_mote_gateway_port" placeholder="4000" style="width: 80px" onkeypress = "if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
-                                        
-                                        <td><input type="text" class="text1" id="new_mote_coordinates" placeholder="x,y" style="width: 80px" onkeypress = "if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
-                                        
-                                        <td><select class="text1" id = "moteTypesList_load" required></select></td>
-                                        
-                                        <td><select class="text1" id = "clustersList_load" required></select></td>
-                                        
-                                        <td>Automatically</td>
-                                        
-                                        <td><input id="addMotebtn" type="button" class="button add" onclick="add_mote_row();" value="Add Row" style="float: left"></td>
-                                    </tr>
-
-                                    </table>
-                                </div>
-                                
-                            </div>
+                            </table>
                         </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="border">
+                        <legend>Motes</legend>
+
+                        <div id="table-scroll" class="text1 table-scroll">
+                            <table class="table table-hover table-expandable table-striped" width="100%" id="motes_data_table">
+                                <tr>
+                                    <th style="padding-right:10px">Physical ID</th>
+                                    <th style="padding-right:10px">Virtual ID</th>
+                                    <th style="padding-right:10px">Gateway IP</th>
+                                    <th style="padding-right:10px">Gateway ttyid</th>
+                                    <th style="padding-right:10px">Gateway Port</th>
+                                    <th style="padding-right:10px">Coordinates</th>
+                                    <th style="padding-right:10px">Mote Type</th>
+                                    <th style="padding-right:10px">Cluster</th>
+                                    <th style="padding-right:10px">Status</th>
+
+                                    <th style="width: 110px"></th>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="text" class="text1" id="new_mote_physical_id" placeholder="manufacturer id" style="width: 80px" onkeypress="if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
+
+                                    <td><input type="text" class="text1" id="new_mote_virtual_id" placeholder="nodeid when running experiment" style="width: 80px" onkeypress="if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
+
+                                    <td><input type="text" class="text1" id="new_mote_gateway_ip" style="width: 80px" onkeypress="if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
+
+                                    <td><input type="text" class="text1" id="new_mote_gateway_ttyid" placeholder="/dev/ttyUSB0" style="width: 80px" onkeypress="if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
+
+                                    <td><input type="text" class="text1" id="new_mote_gateway_port" placeholder="4000" style="width: 80px" onkeypress="if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
+
+                                    <td><input type="text" class="text1" id="new_mote_coordinates" placeholder="x,y" style="width: 80px" onkeypress="if (event.keyCode == 13)document.getElementById('addMotebtn').click();" required></td>
+
+                                    <td><select class="text1" id="moteTypesList_load" required></select></td>
+
+                                    <td><select class="text1" id="clustersList_load" required></select></td>
+
+                                    <td>Automatically</td>
+
+                                    <td><input id="addMotebtn" type="button" class="button add" onclick="add_mote_row();" value="Add Row" style="float: left"></td>
+                                </tr>
+
+                            </table>
+                        </div>
+
                     </div>
                 </div>
-			</div>
-		</div>
-<!--==============================footer=================================-->
-		<footer>
-			<div id ="footer" class="zerogrid">
-				<div class="col-full">
-					<div class="wrap-col">
-                        <a onClick="goToByScroll('page1'); return false;" href="#"><img src="images/icon.png" alt=""></a>
-					</div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</footer>
-	</body>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--==============================footer=================================-->
+    <footer>
+        <div id="footer" class="zerogrid">
+            <div class="col-full">
+                <div class="wrap-col">
+                    <a onClick="goToByScroll('page1'); return false;" href="#"><img src="images/icon.png" alt=""></a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </footer>
+</body>
+
 </html>
