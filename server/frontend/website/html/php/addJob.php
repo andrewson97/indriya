@@ -8,7 +8,7 @@ $dcube_included = $_POST['dcube_included'];
 $userID = filter_var($userID, FILTER_SANITIZE_EMAIL);
 
 $isMyForm = isset($_POST, $_POST["userID"], $_POST["jobName"], $_POST["numberOfMoteTypes"], $_POST["dcube_included"]);
-
+//echo("test");
 if(!$isMyForm || !filter_var($userID, FILTER_VALIDATE_EMAIL) || !preg_match("/[A-Za-z0-9.\-@]+/", $jobName) || !preg_match("/[A-Za-z0-9.\-@]+/", $numberOfMoteTypes) || sizeof($userID) == 0 || sizeof($jobName) == 0 || sizeof($numberOfMoteTypes) == 0){
     #header("HTTP/1.0 404 Not Found");
     #include "404missing.php";

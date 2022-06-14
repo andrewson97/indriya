@@ -6,13 +6,16 @@ $userID = filter_var($userID, FILTER_SANITIZE_EMAIL);
 
 $isMyForm = isset($_POST, $_POST["userID"], $_POST["jobID"]);
 
+
 if(!$isMyForm || !filter_var($userID, FILTER_VALIDATE_EMAIL) || !preg_match("/[A-Za-z0-9.\-@]+/", $q) || sizeof($q) == 0){
+    #echo("if");
     #header("HTTP/1.0 404 Not Found");
     #include "404missing.php";
     #missing404($_SERVER['SERVER_NAME'], $_SERVER['REQUEST_URI']);
     exit();
 } else {
 #get db pass
+#echo("else");
 include "databaseHandler.php";
 $indriya_db_pass = getpsw();
 
