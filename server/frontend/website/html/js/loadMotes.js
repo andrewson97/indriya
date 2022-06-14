@@ -5,9 +5,11 @@ function loadMotes() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'php/getMotes.php', true);
     xhr.send(userInfo);
+    //alert("loadmotes")
     xhr.onload = function () {
         if (xhr.status === 200) {
             var xmlDoc = xhr.responseXML;
+            //alert(xmlDoc)
             if(xmlDoc != null){
                 //add mote types to mote types table
                 var table=document.getElementById("moteTypes_data_table");

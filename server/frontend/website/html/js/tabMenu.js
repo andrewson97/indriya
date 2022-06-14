@@ -671,7 +671,9 @@ function expandAllClick(){
 //delete
 function deleteClick(){
     var result = confirm("Want to delete this job?");
+    //alert(result)
     if (result) {
+        //alert("true1")
         document.getElementById("cancelScheduleModal").style.display = "block";
         var i = this.id.split("@");
 
@@ -685,6 +687,7 @@ function deleteClick(){
         xhr.onload = function () {
             if (xhr.status === 200) {
                 document.getElementById("cancelScheduleModal").style.display = "none";
+                //alert(this.responseText)
                 var flag = this.responseText;
                 if(flag == 1){
                     /*document.getElementById(i[0] + "@jobRow").outerHTML = "";

@@ -1228,6 +1228,7 @@ function backJob() {
 
 function addJobDB() {
     //check for association (at least one file per mote type)
+    //alert("adjob")
     var moteAdded = [];
     for (var i = 0; i < data.get('numberOfMoteTypes'); i++){
         moteAdded[i] = 0;
@@ -1246,7 +1247,7 @@ function addJobDB() {
             break;
         }
     }
-    
+    //alert("11111111")
     //send data form to php in xmlhttp to save to DB and show jobs table
     if(ok) {
         //check if schedule! add to data form duration and start timestamp
@@ -1259,7 +1260,7 @@ function addJobDB() {
                 updateSchedule();
             data.append("startTimestamp", document.getElementById("scheduledDateTime").value);
         }*/
-        
+        //alert ("okok")
         document.getElementById("errorAddJob").style.display = "none";
         document.getElementById("errorAddJobUnsupportedFile").style.display = "none";
         document.getElementById("unsupportedFiles").innerHTML = "";
@@ -1267,7 +1268,7 @@ function addJobDB() {
         
         document.getElementById("uploadingAddJob").style.display = "block";
         document.getElementById("addJobModal").style.display = "block";
-        
+        //alert("pass")
         var xhr = new XMLHttpRequest();
         
         xhr.open('POST', 'php/addJob.php', true);
@@ -1275,20 +1276,25 @@ function addJobDB() {
         xhr.onload = function () {
             if (xhr.status === 200) {
                 var myObj = JSON.parse(this.responseText);
-               
+                //alert(myObj)
                 document.getElementById("uploadingAddJob").style.display = "none";
                 
                 if(myObj.status == "SUCCESS") {
-                    addedJobID = myObj.jobID;
+                    addedJobID = myObj.jobID;                    
                     var btn = document.getElementById("btnScheduleNowJobAddJob");
                     document.getElementById("successAddJob").style.display = "block";
+
                 } else {
                     if(myObj.message == "unsuported file format"){
                         var container = document.getElementById("unsupportedFiles");
                         container.append(JSON.stringify(myObj.files));
                         document.getElementById("errorAddJobUnsupportedFile").style.display = "block";
+                        //alert("1292")
                     }
                     else
+                        msg = myObj.message;
+                        alert(msg)
+                        //alert("1295")
                         document.getElementById("errorAddJob").style.display = "block";
                 }
             }
